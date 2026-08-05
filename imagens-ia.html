@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BMW M5 Competition</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:
+    radial-gradient(circle at top,#004cff 0%,transparent 30%),
+    radial-gradient(circle at bottom right,#8000ff 0%,transparent 30%),
+    #050816;
+
+    color:white;
+    min-height:100vh;
+}
+
+header{
+
+    text-align:center;
+    padding:50px;
+
+}
+
+header h1{
+
+    font-size:70px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+
+    background:linear-gradient(90deg,#00d4ff,#ffffff,#006eff);
+    -webkit-background-clip:text;
+    color:transparent;
+
+}
+
+header p{
+
+    margin-top:15px;
+    color:#cfcfcf;
+    font-size:18px;
+
+}
+
+.container{
+
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+
+}
+
+.destaque{
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    0 0 40px rgba(0,110,255,.4);
+
+}
+
+.destaque img{
+
+    width:100%;
+    height:650px;
+    object-fit:cover;
+
+    transition:.8s;
+
+}
+
+.destaque:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.texto{
+
+    position:absolute;
+
+    bottom:50px;
+    left:50px;
+
+    backdrop-filter:blur(20px);
+
+    background:rgba(0,0,0,.35);
+
+    padding:25px;
+
+    border-radius:20px;
+
+}
+
+.texto h2{
+
+    font-size:45px;
+
+}
+
+.texto p{
+
+    margin-top:10px;
+    color:#ddd;
+
+}
+
+.galeria{
+
+    margin-top:50px;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:.5s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 0 35px #008cff;
+
+}
+
+.card img{
+
+    width:100%;
+    height:250px;
+    object-fit:cover;
+
+    transition:.7s;
+
+}
+
+.card:hover img{
+
+    transform:scale(1.15);
+
+}
+
+.card h3{
+
+    padding:20px 20px 5px;
+
+}
+
+.card p{
+
+    padding:0 20px 20px;
+    color:#d0d0d0;
+
+}
+
+.botao{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:15px 35px;
+
+    border-radius:40px;
+
+    background:linear-gradient(90deg,#006eff,#00d4ff);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.4s;
+
+}
+
+.botao:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 30px cyan;
+
+}
+
+footer{
+
+    margin-top:80px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:#9f9f9f;
+
+}
+
+@media(max-width:800px){
+
+header h1{
+
+font-size:45px;
+
+}
+
+.destaque img{
+
+height:350px;
+
+}
+
+.texto{
+
+left:20px;
+bottom:20px;
+
+}
+
+.texto h2{
+
+font-size:30px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>BMW M5</h1>
+
+<p>Performance • Luxo • Tecnologia</p>
+
+</header>
+
+<div class="container">
+
+<div class="destaque">
+
+<img src="f1.avif">
+
+<div class="texto">
+
+<h2>BMW M5 Competition</h2>
+
+<p>Até 727 cv de potência • Tração Integral • Tecnologia de ponta.</p>
+
+<a href="#" class="botao">Conheça Mais</a>
+
+</div>
+
+</div>
+
+<div class="galeria">
+
+<div class="card">
+
+<img src="f2.jpg">
+
+<h3>Design</h3>
+
+<p>Linhas agressivas e acabamento premium com visual esportivo.</p>
+
+</div>
+
+<div class="card">
+
+<img src="f3.jpg">
+
+<h3>Interior</h3>
+
+<p>Cabine luxuosa com painel digital e bancos esportivos.</p>
+
+</div>
+
+<div class="card">
+
+<img src="f4.jpg">
+
+<h3>Performance</h3>
+
+<p>Motor V8 Biturbo capaz de acelerar de 0 a 100 km/h em poucos segundos.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+BMW M5 • Design Futurista • Desenvolvido em HTML & CSS
+
+</footer>
+
+</body>
+
+</html>
