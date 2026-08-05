@@ -1,0 +1,3 @@
+mudei a cor do subtítulo
+mudei a cor da caixa de texto na imagem principal
+mudei a cor do "Conheça mais"
