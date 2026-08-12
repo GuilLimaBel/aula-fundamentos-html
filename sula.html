@@ -590,6 +590,216 @@
             }
         }
     </style>
+
+    <!-- =========================
+         ANIMAÇÕES ADICIONADAS
+         (não altera nada acima,
+         apenas complementa)
+    ========================== -->
+    <style>
+
+        /* ---- Letras do título (hero h1) ---- */
+        .hero h1 .letra {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px) rotate(4deg);
+            animation: entraLetra .7s cubic-bezier(.2,.8,.2,1) forwards;
+        }
+
+        .hero h1 .letra:hover {
+            color: var(--dourado);
+            transform: translateY(-6px) scale(1.15);
+            transition: transform .25s ease, color .25s ease;
+        }
+
+        @keyframes entraLetra {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        /* ---- Foto pessoal (about-image) ---- */
+        .about-image {
+            position: relative;
+            transition: transform .6s cubic-bezier(.2,.8,.2,1),
+                        box-shadow .6s ease,
+                        filter .6s ease;
+            animation: flutuarFoto 5s ease-in-out infinite;
+            box-shadow: 0 20px 45px rgba(64,53,45,.18);
+            will-change: transform;
+        }
+
+        .about-image:hover {
+            transform: scale(1.035) rotate(-.6deg);
+            box-shadow: 0 30px 60px rgba(64,53,45,.28);
+            filter: saturate(1.15) brightness(1.03);
+        }
+
+        @keyframes flutuarFoto {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-10px); }
+        }
+
+        .about-image.reveal-img {
+            animation: apareceFoto 1s ease-out forwards,
+                       flutuarFoto 5s ease-in-out 1s infinite;
+            opacity: 0;
+        }
+
+        @keyframes apareceFoto {
+            from {
+                opacity: 0;
+                transform: translateY(35px) scale(.94);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ---- Foto do hero também ganha entrada suave ---- */
+        .hero-image {
+            animation: apareceHeroImg 1.1s ease-out;
+        }
+
+        @keyframes apareceHeroImg {
+            from {
+                opacity: 0;
+                transform: scale(1.06);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ---- Fotos do portfólio: zoom interativo no hover ---- */
+        .portfolio-item {
+            transition: transform .5s ease;
+        }
+
+        .portfolio-item::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: inherit;
+            background-size: cover;
+            background-position: center;
+            transition: transform .6s ease;
+            z-index: 0;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 45px rgba(64,53,45,.25);
+        }
+
+        .portfolio-overlay {
+            position: relative;
+            z-index: 1;
+            transition: transform .4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(-4px);
+        }
+
+        /* ---- Botões com micro-interação ---- */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,.25);
+            border-radius: 50%;
+            transform: translate(-50%,-50%);
+            transition: width .5s ease, height .5s ease;
+        }
+
+        .btn:hover::after {
+            width: 260px;
+            height: 260px;
+        }
+
+        /* ---- Cards de serviço: leve inclinação 3D no hover ---- */
+        .service {
+            transform-style: preserve-3d;
+            perspective: 600px;
+        }
+
+        .service:hover {
+            transform: translateY(-7px) rotateX(3deg);
+        }
+
+        /* ---- Números dos serviços "pulando" ao entrar em vista ---- */
+        .service-number {
+            display: inline-block;
+            transition: transform .3s ease;
+        }
+
+        .service:hover .service-number {
+            transform: scale(1.2) rotate(-6deg);
+        }
+
+        /* ---- Links do menu com sublinhado animado ---- */
+        nav ul li a {
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 1px;
+            background: var(--dourado);
+            transition: width .3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* ---- Assinatura com leve animação de escrita ---- */
+        .signature {
+            opacity: 0;
+            animation: apareceAssinatura 1s ease-out 1.4s forwards;
+        }
+
+        @keyframes apareceAssinatura {
+            from {
+                opacity: 0;
+                transform: translateX(-12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ---- Respeita usuários que preferem menos movimento ---- */
+        @media (prefers-reduced-motion: reduce) {
+            .hero h1 .letra,
+            .about-image,
+            .about-image.reveal-img,
+            .hero-image,
+            .signature {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
@@ -967,6 +1177,62 @@
         © 2026 Sula Lima. Todos os direitos reservados.
 
     </footer>
+
+    <!-- =========================
+         SCRIPT DE ANIMAÇÕES
+         (apenas adiciona classes/spans,
+         não remove nada do conteúdo)
+    ========================== -->
+    <script>
+        // 1) Anima cada letra do título principal (preserva o <em>)
+        (function animarLetrasTitulo() {
+            const titulo = document.querySelector('.hero h1');
+            if (!titulo) return;
+
+            let atraso = 0;
+            const PASSO = 0.035; // segundos entre cada letra
+
+            function envolverLetras(node) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const frag = document.createDocumentFragment();
+                    [...node.textContent].forEach((char) => {
+                        if (char.trim() === "") {
+                            frag.appendChild(document.createTextNode(char));
+                        } else {
+                            const span = document.createElement('span');
+                            span.className = 'letra';
+                            span.textContent = char;
+                            span.style.animationDelay = atraso.toFixed(3) + 's';
+                            atraso += PASSO;
+                            frag.appendChild(span);
+                        }
+                    });
+                    node.parentNode.replaceChild(frag, node);
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    [...node.childNodes].forEach(envolverLetras);
+                }
+            }
+
+            [...titulo.childNodes].forEach(envolverLetras);
+        })();
+
+        // 2) Revela a foto pessoal (about-image) com animação ao entrar na tela
+        (function revelarFotoPessoal() {
+            const foto = document.querySelector('.about-image');
+            if (!foto || !('IntersectionObserver' in window)) return;
+
+            const observer = new IntersectionObserver((entradas) => {
+                entradas.forEach((entrada) => {
+                    if (entrada.isIntersecting) {
+                        foto.classList.add('reveal-img');
+                        observer.unobserve(foto);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(foto);
+        })();
+    </script>
 
 </body>
 </html>
