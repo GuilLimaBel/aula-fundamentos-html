@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Links das minhas aulas de HTML">
+    <meta name="author" content="Guilherme">
+
+    <title>Guilherme | Aulas de HTML</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background:
+                radial-gradient(circle at top left, #00d9ff55, transparent 35%),
+                radial-gradient(circle at bottom right, #0066ff55, transparent 35%),
+                #07111f;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 45px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+        }
+
+        .topo {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .icone {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: linear-gradient(135deg, #00d9ff, #0066ff);
+
+            font-size: 35px;
+
+            box-shadow: 0 10px 30px rgba(0, 174, 255, 0.35);
+        }
+
+        h1 {
+            font-size: clamp(28px, 5vw, 42px);
+            margin-bottom: 10px;
+
+            background: linear-gradient(90deg, #ffffff, #00d9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .descricao {
+            color: #aebdcc;
+            font-size: 15px;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .link {
+            text-decoration: none;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            padding: 18px 20px;
+
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+
+            border-radius: 16px;
+
+            transition: 0.3s ease;
+        }
+
+        .link:hover {
+            transform: translateY(-5px) scale(1.01);
+
+            background: rgba(0, 200, 255, 0.14);
+
+            border-color: #00d9ff;
+
+            box-shadow: 0 10px 30px rgba(0, 200, 255, 0.15);
+        }
+
+        .numero {
+            min-width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background: linear-gradient(135deg, #00d9ff, #0066ff);
+
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .texto {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .texto strong {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .texto span {
+            color: #8797a8;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #718092;
+            font-size: 12px;
+        }
+
+        @media (max-width: 650px) {
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .links {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="card">
+
+            <header class="topo">
+
+                <div class="icone">
+                    💻
+                </div>
+
+                <h1>Minhas Aulas de HTML</h1>
+
+                <p class="descricao">
+                    Confira meus projetos, exercícios e atividades desenvolvidas durante as aulas.
+                </p>
+
+            </header>
+
+            <div class="links">
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/aula01.html">
+                    <div class="numero">01</div>
+                    <div class="texto">
+                        <strong>Aula 01</strong>
+                        <span>Primeiros conceitos de HTML</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/aula02.html">
+                    <div class="numero">02</div>
+                    <div class="texto">
+                        <strong>Aula 02</strong>
+                        <span>Estrutura e elementos HTML</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/aula03.html">
+                    <div class="numero">03</div>
+                    <div class="texto">
+                        <strong>Aula 03</strong>
+                        <span>Novos recursos e exercícios</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/flimes.html">
+                    <div class="numero">🎬</div>
+                    <div class="texto">
+                        <strong>Filmes Favoritos</strong>
+                        <span>Minha seleção de filmes</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/musicas.html">
+                    <div class="numero">🎵</div>
+                    <div class="texto">
+                        <strong>Músicas Favoritas</strong>
+                        <span>Artistas e músicas que gosto</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/culinaria.html">
+                    <div class="numero">🍔</div>
+                    <div class="texto">
+                        <strong>Culinárias Favoritas</strong>
+                        <span>Comidas e receitas favoritas</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/imagem.html">
+                    <div class="numero">🖼️</div>
+                    <div class="texto">
+                        <strong>Imagens</strong>
+                        <span>Galeria de imagens</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/imagens-ia.html">
+                    <div class="numero">🤖</div>
+                    <div class="texto">
+                        <strong>Imagens com IA</strong>
+                        <span>Projetos utilizando inteligência artificial</span>
+                    </div>
+                </a>
+
+                <a class="link" target="_blank" href="http://127.0.0.1:5500/personal-page.html">
+                    <div class="numero">👤</div>
+                    <div class="texto">
+                        <strong>Personal Page</strong>
+                        <span>Minha página pessoal</span>
+                    </div>
+                </a>
+
+            </div>
+
+            <footer>
+                Desenvolvido por Guilherme • HTML & CSS
+            </footer>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

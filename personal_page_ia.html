@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guilherme | Developer</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           FUNDO ANIMADO
+        ========================= */
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(150px);
+            z-index: -2;
+            animation: orbitar 12s infinite alternate ease-in-out;
+        }
+
+        body::before {
+            background: #0055ff;
+            opacity: 0.25;
+            top: -200px;
+            left: -200px;
+        }
+
+        body::after {
+            background: #8b00ff;
+            opacity: 0.20;
+            bottom: -200px;
+            right: -200px;
+            animation-delay: 3s;
+        }
+
+        @keyframes orbitar {
+
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(120px, 80px) scale(1.2);
+            }
+
+            100% {
+                transform: translate(-50px, 150px) scale(0.9);
+            }
+
+        }
+
+        /* =========================
+           PARTÍCULAS
+        ========================= */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: subir 8s infinite linear;
+        }
+
+        .p1 { left: 10%; animation-delay: 0s; }
+        .p2 { left: 20%; animation-delay: 2s; }
+        .p3 { left: 35%; animation-delay: 4s; }
+        .p4 { left: 50%; animation-delay: 1s; }
+        .p5 { left: 65%; animation-delay: 3s; }
+        .p6 { left: 80%; animation-delay: 5s; }
+        .p7 { left: 90%; animation-delay: 2s; }
+
+        @keyframes subir {
+
+            0% {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.6;
+            }
+
+            80% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-20vh);
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(5, 5, 5, 0.55);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            z-index: 100;
+
+            animation: navEntrada 1s ease;
+        }
+
+        @keyframes navEntrada {
+
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #4d8dff;
+            animation: brilho 2s infinite alternate;
+        }
+
+        @keyframes brilho {
+
+            from {
+                text-shadow: 0 0 5px #4d8dff;
+            }
+
+            to {
+                text-shadow: 0 0 25px #4d8dff;
+            }
+
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+            text-shadow: 0 0 15px #4d8dff;
+        }
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: 900px;
+            max-width: 92%;
+            margin: auto;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            animation: heroEntrada 1.5s ease;
+        }
+
+        @keyframes heroEntrada {
+
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           FOTO
+        ========================= */
+
+        .foto-container {
+            position: relative;
+            display: inline-block;
+            animation: flutuar 4s ease-in-out infinite;
+        }
+
+        @keyframes flutuar {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+        }
+
+        .foto {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 50%;
+            padding: 5px;
+
+            border: 3px solid transparent;
+
+            background:
+                linear-gradient(#050505, #050505) padding-box,
+                linear-gradient(135deg, #0066ff, #a855f7) border-box;
+
+            box-shadow:
+                0 0 30px rgba(0,102,255,0.4),
+                0 0 80px rgba(125,0,255,0.2);
+
+            transition: 0.5s;
+        }
+
+        .foto:hover {
+            transform: scale(1.08) rotate(3deg);
+
+            box-shadow:
+                0 0 40px rgba(0,102,255,0.7),
+                0 0 100px rgba(125,0,255,0.5);
+        }
+
+        .status {
+            position: absolute;
+            right: 10px;
+            bottom: 15px;
+
+            width: 22px;
+            height: 22px;
+
+            background: #00e676;
+            border: 4px solid #050505;
+            border-radius: 50%;
+
+            animation: pulsar 1.5s infinite;
+        }
+
+        @keyframes pulsar {
+
+            0% {
+                box-shadow: 0 0 0 0 rgba(0,230,118,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(0,230,118,0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0,230,118,0);
+            }
+
+        }
+
+        /* =========================
+           TAG
+        ========================= */
+
+        .tag {
+            display: inline-block;
+            margin-top: 25px;
+            margin-bottom: 20px;
+
+            padding: 9px 18px;
+
+            border: 1px solid rgba(77,141,255,0.5);
+            border-radius: 50px;
+
+            color: #6fa0ff;
+
+            background: rgba(77,141,255,0.08);
+
+            animation: aparecerTag 1s 0.5s both;
+        }
+
+        @keyframes aparecerTag {
+
+            from {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+        /* =========================
+           TÍTULO
+        ========================= */
+
+        h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -3px;
+        }
+
+        h1 span {
+            background: linear-gradient(
+                90deg,
+                #4d8dff,
+                #a855f7,
+                #4d8dff
+            );
+
+            background-size: 200%;
+
+            -webkit-background-clip: text;
+            color: transparent;
+
+            animation: gradiente 3s linear infinite;
+        }
+
+        @keyframes gradiente {
+
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 200%;
+            }
+
+        }
+
+        .descricao {
+            max-width: 600px;
+            margin: auto;
+
+            color: #999;
+            font-size: 18px;
+            line-height: 1.7;
+
+            animation: textoEntrada 1s 0.8s both;
+        }
+
+        @keyframes textoEntrada {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo small {
+            color: #4d8dff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+        }
+
+        .titulo h2 {
+            font-size: 42px;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .especialidades {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            position: relative;
+
+            padding: 30px;
+            min-height: 180px;
+
+            border-radius: 22px;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(20px);
+
+            text-decoration: none;
+            color: white;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.5s,
+                border 0.5s,
+                box-shadow 0.5s;
+
+            animation: cardEntrada 1s both;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.55s;
+        }
+
+        @keyframes cardEntrada {
+
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            border-radius: 50%;
+
+            background: #0066ff;
+
+            filter: blur(100px);
+
+            opacity: 0;
+
+            left: -100px;
+            top: -100px;
+
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            transform:
+                translateY(-12px)
+                scale(1.02);
+
+            border-color: rgba(77,141,255,0.6);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.5),
+                0 0 30px rgba(0,102,255,0.12);
+        }
+
+        .card:hover::before {
+            opacity: 0.35;
+        }
+
+        .icone {
+            font-size: 40px;
+            margin-bottom: 20px;
+
+            display: inline-block;
+
+            transition: 0.4s;
+        }
+
+        .card:hover .icone {
+            transform:
+                scale(1.2)
+                rotate(8deg);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .abrir {
+            position: absolute;
+            right: 25px;
+            bottom: 25px;
+
+            color: #4d8dff;
+            font-size: 22px;
+
+            transition: 0.4s;
+        }
+
+        .card:hover .abrir {
+            transform:
+                translate(5px, -5px)
+                scale(1.2);
+
+            text-shadow:
+                0 0 15px #4d8dff;
+        }
+
+        /* =========================
+           HOBBIES
+        ========================= */
+
+        .hobbies {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .hobby {
+            padding: 30px 15px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.035);
+
+            border: 1px solid rgba(255,255,255,0.07);
+
+            border-radius: 20px;
+
+            transition: 0.4s;
+
+            animation: hobbyEntrada 1s both;
+        }
+
+        .hobby:hover {
+            transform:
+                translateY(-10px)
+                rotate(-2deg);
+
+            background: rgba(255,255,255,0.08);
+
+            border-color: rgba(77,141,255,0.4);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .hobby-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+
+            transition: 0.4s;
+        }
+
+        .hobby:hover .hobby-icon {
+            transform:
+                scale(1.3)
+                rotate(10deg);
+        }
+
+        .hobby p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* =========================
+           REDES
+        ========================= */
+
+        .redes {
+            text-align: center;
+        }
+
+        .social {
+            display: inline-flex;
+
+            width: 60px;
+            height: 60px;
+
+            margin: 10px;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            transition: 0.4s;
+        }
+
+        .social img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+
+            transition: 0.4s;
+        }
+
+        .social:hover {
+            transform:
+                translateY(-8px)
+                rotate(5deg);
+
+            background: rgba(77,141,255,0.15);
+
+            border-color: #4d8dff;
+
+            box-shadow:
+                0 0 30px rgba(77,141,255,0.25);
+        }
+
+        .social:hover img {
+            transform: scale(1.15);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 35px;
+
+            text-align: center;
+
+            border-top:
+                1px solid rgba(255,255,255,0.08);
+
+            color: #666;
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav .links {
+                display: none;
+            }
+
+            .especialidades {
+                grid-template-columns: 1fr;
+            }
+
+            .hobbies {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- PARTÍCULAS -->
+
+    <div class="particles">
+
+        <span class="particle p1"></span>
+        <span class="particle p2"></span>
+        <span class="particle p3"></span>
+        <span class="particle p4"></span>
+        <span class="particle p5"></span>
+        <span class="particle p6"></span>
+        <span class="particle p7"></span>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Guilherme<span>.</span>
+        </div>
+
+        <div class="links">
+
+            <a href="#inicio">Início</a>
+
+            <a href="#especialidades">
+                Especialidades
+            </a>
+
+            <a href="#hobbies">
+                Hobbies
+            </a>
+
+            <a href="#contato">
+                Contato
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <div class="foto-container">
+
+                <img
+                    class="foto"
+                    src="f4.jpg"
+                    alt="Foto de Guilherme"
+                >
+
+                <div class="status"></div>
+
+            </div>
+
+            <br>
+
+            <div class="tag">
+                ● ESTUDANTE DE DESENVOLVIMENTO
+            </div>
+
+            <h1>
+
+                Olá, sou<br>
+
+                <span>Guilherme.</span>
+
+            </h1>
+
+            <p class="descricao">
+
+                Tenho 16 anos e sou estudante de
+                Desenvolvimento de Sistemas.
+                Estou aprendendo programação,
+                tecnologia e criação de projetos digitais.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ESPECIALIDADES -->
+
+    <section id="especialidades">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <small>
+                    O que estou aprendendo
+                </small>
+
+                <h2>
+                    Minhas Especialidades
+                </h2>
+
+            </div>
+
+
+            <div class="especialidades">
+
+
+                <a
+                    class="card"
+                    href="https://www.youtube.com/playlist?list=PLZPZq0r_RZOOxqHgOzPyCzIl4AJjXbCYt"
+                    target="_blank"
+                >
+
+                    <div class="icone">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Página Web
+                    </h3>
+
+                    <p>
+                        HTML, CSS e criação
+                        de interfaces modernas.
+                    </p>
+
+                    <span class="abrir">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="card"
+                    href="https://www.youtube.com/playlist?list=PL4-IK0AVhVjOJs_UjdQeyEZ_cmEV3uJvx"
+                    target="_blank"
+                >
+
+                    <div class="icone">
+                        ⚛️
+                    </div>
+
+                    <h3>
+                        Aplicativos com React
+                    </h3>
+
+                    <p>
+                        Desenvolvimento de aplicações
+                        utilizando React.
+                    </p>
+
+                    <span class="abrir">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="card"
+                    href="https://www.youtube.com/playlist?list=PLbIBj8vQhvm00J3f3rD33tRuNLem8EgEAL"
+                    target="_blank"
+                >
+
+                    <div class="icone">
+                        🗄️
+                    </div>
+
+                    <h3>
+                        Banco de Dados
+                    </h3>
+
+                    <p>
+                        Organização, armazenamento
+                        e consulta de dados.
+                    </p>
+
+                    <span class="abrir">
+                        ↗
+                    </span>
+
+                </a>
+
+
+                <a
+                    class="card"
+                    href="https://www.youtube.com/playlist?list=PL2Fdisxwzt_f5C7Mv0kg1EAHhy2VJLf1c"
+                    target="_blank"
+                >
+
+                    <div class="icone">
+                        🐍
+                    </div>
+
+                    <h3>
+                        Python
+                    </h3>
+
+                    <p>
+                        Programação, lógica e
+                        desenvolvimento de aplicações.
+                    </p>
+
+                    <span class="abrir">
+                        ↗
+                    </span>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOBBIES -->
+
+    <section id="hobbies">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <small>
+                    Fora da programação
+                </small>
+
+                <h2>
+                    Meus Hobbies
+                </h2>
+
+            </div>
+
+
+            <div class="hobbies">
+
+                <div class="hobby">
+
+                    <div class="hobby-icon">
+                        🍔
+                    </div>
+
+                    <p>
+                        Degustar comidas
+                    </p>
+
+                </div>
+
+
+                <div class="hobby">
+
+                    <div class="hobby-icon">
+                        🎮
+                    </div>
+
+                    <p>
+                        Jogar
+                    </p>
+
+                </div>
+
+
+                <div class="hobby">
+
+                    <div class="hobby-icon">
+                        🪁
+                    </div>
+
+                    <p>
+                        Soltar pipa
+                    </p>
+
+                </div>
+
+
+                <div class="hobby">
+
+                    <div class="hobby-icon">
+                        😴
+                    </div>
+
+                    <p>
+                        Dormir
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REDES -->
+
+    <section id="contato">
+
+        <div class="container">
+
+            <div class="titulo">
+
+                <small>
+                    Onde me encontrar
+                </small>
+
+                <h2>
+                    Minhas Redes
+                </h2>
+
+            </div>
+
+
+            <div class="redes">
+
+                <a
+                    class="social"
+                    href="https://github.com/GuilLimaBel"
+                    target="_blank"
+                >
+
+                    <img
+                        src="github.png"
+                        alt="GitHub"
+                    >
+
+                </a>
+
+
+                <a
+                    class="social"
+                    href="https://www.linkedin.com/in/guilherme-beltrão-7b3555409?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                    target="_blank"
+                >
+
+                    <img
+                        src="linkedin.png"
+                        alt="LinkedIn"
+                    >
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        © 2026 Guilherme · Personal Page
+
+    </footer>
+
+
+</body>
+
+</html>
